@@ -621,7 +621,7 @@ The Distributed Job Scheduler successfully demonstrates:
 ## 1. Clone the Repository
 ```bash
 git clone https://github.com/Rakshit412005/Job-Scheduler.git
-cd Job-Scheduler
+cd distributed_Job-Scheduler
 ````
 
 ## 2. Create a Virtual Environment
