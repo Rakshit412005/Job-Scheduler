@@ -615,3 +615,117 @@ The Distributed Job Scheduler successfully demonstrates:
 - Scalable queue architecture
 
 ---
+
+# How to Run
+
+## 1. Clone the Repository
+```bash
+git clone https://github.com/Rakshit412005/Job-Scheduler.git
+cd Job-Scheduler
+````
+
+## 2. Create a Virtual Environment
+
+```bash
+python -m venv venv
+```
+
+### Activate the Virtual Environment
+
+**Windows**
+
+```bash
+venv\Scripts\activate
+```
+
+**Linux/macOS**
+
+```bash
+source venv/bin/activate
+```
+
+## 3. Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+## 4. Navigate to the Backend Directory
+
+```bash
+cd distributed_scheduler/backend
+```
+
+## 5. Apply Database Migrations
+
+```bash
+python manage.py makemigrations
+python manage.py migrate
+```
+
+## 6. Create an Admin User
+
+```bash
+python manage.py createsuperuser
+```
+
+Provide:
+
+* Username
+* Email
+* Password
+
+## 7. Start the Django Server
+
+```bash
+python manage.py runserver
+```
+
+The application will be available at:
+
+* [http://127.0.0.1:8000/](http://127.0.0.1:8000/)
+* Django Admin: [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
+
+## 8. Start the Worker Service
+
+Open a new terminal window and run:
+
+```bash
+cd distributed_scheduler/backend/workers
+python worker.py
+```
+
+The worker will start polling for jobs.
+
+## 9. Test the APIs
+
+Authenticate and obtain a JWT token:
+
+```http
+POST http://127.0.0.1:8000/api/login/
+```
+
+Use the access token to:
+
+* Create projects
+* Create queues
+* Submit jobs
+* Monitor job execution
+
+## 10. Monitor Execution
+
+Open Django Admin:
+
+* [http://127.0.0.1:8000/admin/](http://127.0.0.1:8000/admin/)
+
+Monitor:
+
+* Projects
+* Queues
+* Jobs
+* Job Executions
+* Workers
+* Dead Letter Queue Entries
+
+```
+
